@@ -22,7 +22,7 @@ end
 
 Gem brings support of the following options:
 
-* `direct` determines whether file should be uploaded asynchronously or not. Uploading host might me changed with `host` option. More about it read in refile [documentation](https://github.com/elabs/refile/). Note that refile's js should be included on the page.
+* `direct` determines whether file should be uploaded asynchronously or not. Uploading host might be changed with `host` option. More about it read in refile [documentation](https://github.com/elabs/refile/). Note that refile's js should be included on the page.
 * `image_preview` is an option to generate image preview. As arguments it accepts list of refile `attachment_url` options. Read more [here](https://github.com/elabs/refile/#4-rails-helpers).
 * all formtastic's options such as `hint`, `label`, etc.
 
