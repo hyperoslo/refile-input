@@ -7,7 +7,7 @@ Refile Input gem adds custom input type to formtastic to use refile file uploade
 Add the gem:
 
 ``` ruby
-gem "refile_input", require: ["inputs/refile_input"]
+gem "refile-input", require: ["inputs/refile_input"]
 ```
 
 Use the gem:
