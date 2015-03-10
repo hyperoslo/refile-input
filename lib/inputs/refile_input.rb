@@ -48,6 +48,6 @@ class RefileInput < Formtastic::Inputs::FileInput
     refile_app_path = Rails.application.routes.url_helpers.refile_app_path
     url = Refile.attachment_url @object, method, *options, prefix: refile_app_path
 
-    template.image_tag url, class: 'image-preview'
+    template.content_tag(:div, template.image_tag(url), class: 'image-preview')
   end
 end
