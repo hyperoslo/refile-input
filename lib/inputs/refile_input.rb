@@ -6,7 +6,7 @@ class RefileInput < Formtastic::Inputs::FileInput
     options[:accept] = attacher.accept
 
     if options[:direct]
-      host = Refile.host || options[:host]
+      host =  options[:host] || Refile.host
       backend_name = Refile.backends.key(attacher.cache)
 
       url = ::File.join(host, Rails.application.routes.url_helpers.refile_app_path, backend_name)
