@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name          = 'refile-input'
   s.license       = 'MIT'
-  s.version       = '0.0.2'
+  s.version       = '0.0.3'
   s.authors       = ["Petr Sergeev", "Sindre Moen"]
   s.email         = ["peter@hyper.no", "sindre@hyper.no"]
   s.description   = "This adds custom input to support refile file uploader to formtastic form builder"
