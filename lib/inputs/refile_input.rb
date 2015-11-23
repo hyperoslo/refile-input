@@ -3,7 +3,7 @@ class RefileInput < Formtastic::Inputs::FileInput
     options[:data] ||= {}
 
     attacher = object.send(:"#{method}_attacher")
-    options[:accept] = attacher.accept
+    options[:accept] = attacher.definition.accept
 
     if options[:direct]
       host =  options[:host] || Refile.host
