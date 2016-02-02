@@ -4,9 +4,9 @@ class RefileInput < Formtastic::Inputs::FileInput
 
     attacher = object.send(:"#{method}_attacher")
     options[:accept] = attacher.definition.accept
+    host =  options[:host] || Refile.host
 
     if options[:direct]
-      host =  options[:host] || Refile.host
       backend_name = Refile.backends.key(attacher.cache)
 
       url = ::File.join(host, Rails.application.routes.url_helpers.refile_app_path, backend_name)
@@ -14,7 +14,8 @@ class RefileInput < Formtastic::Inputs::FileInput
     end
 
     if options[:presigned] and attacher.cache.respond_to?(:presign)
-      options[:data].merge!(direct: true).merge!(attacher.cache.presign.as_json)
+      url = ::File.join(host, Rails.application.routes.url_helpers.refile_app_path, backend_name, "presign")
+      options[:data].merge!(direct: true, url: url)
     end
 
     options.merge(input_html_options)
