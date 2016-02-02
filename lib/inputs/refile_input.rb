@@ -1,6 +1,13 @@
 class RefileInput < Formtastic::Inputs::FileInput
+  def initialize *args
+    super
+
+    @reference = SecureRandom.hex
+  end
+
   def file_input_html_options
     options[:data] ||= {}
+    options[:data][:reference] = @reference
 
     attacher = object.send(:"#{method}_attacher")
     options[:accept] = attacher.definition.accept
@@ -23,7 +30,7 @@ class RefileInput < Formtastic::Inputs::FileInput
 
   def hidden_input_html_options
     attacher = object.send(:"#{method}_attacher")
-    { value: attacher.data.to_json, object: object, id: nil }
+    { value: attacher.data.to_json, object: object, id: nil, data: { reference: @reference } }
   end
 
   def to_html
