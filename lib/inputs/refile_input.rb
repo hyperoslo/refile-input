@@ -11,7 +11,7 @@ class RefileInput < Formtastic::Inputs::FileInput
 
     attacher = object.send(:"#{method}_attacher")
     options[:accept] = attacher.definition.accept
-    host =  options[:host] || Refile.host
+    host =  options[:host] || Refile.cdn_host
 
     if options[:direct]
       backend_name = Refile.backends.key(attacher.cache)
